@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="myApp">
+	<head>
+		<title>Twinnect</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body ng-controller="myCtrl">
+			<h2>Click this table</h2>
+			<table border="1" id="table1">
+								<tr><th>Name column</th><th>Next column 1</th><th>Next column 3</th><th>Next column 3</th></tr>
+				<tr ng-repeat="x in data1 track by $index" ng-click="highlight($index)" 
+					 ng-style="set_color($index)"
+
+
+				><td>{{x.name}}</td><td>{{x.name2}}</td><td>{{x.name3}}</td><td>{{x.name4}}</td></tr>
+			</table>
+			<h2>See highlighted output here</h2>			
+				<table border="1">
+								<tr><th>Name column 2</th><th>Next column 1</th><th>Next column 3</th><th>Next column 3</th></tr>
+				<tr ng-repeat="y in data2 track by $index" ng-style="set_color1($index)"><td>{{y.name}}</td>
+<td>{{y.name2}}</td><td>{{y.name3}}</td><td>{{y.name4}}</td>
+
+
+
+				</tr>
+			</table>
+
+			 <script src="angular.min.js"></script>  
+			  <script src="index-angular.js"></script>  
+
+	</body>
+</html>
