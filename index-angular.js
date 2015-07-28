@@ -29,16 +29,16 @@ for (i = 0; i < $scope.data2.length; i++) {
 
 $scope.set_color=function($val){	
 if($scope.x==$val)
-	return { color: "red" }
+	return { backgroundColor: "red" }
 else
-	return { color: "black" }
+	return { backgroundColor: "white" }
 };
 
 $scope.set_color1=function($val1){	
 if($scope.newIndex==$val1)
-	return { color: "red" }
+	return { backgroundColor: "red" }
 else
-	return { color: "black" }
+	return { backgroundColor: "white" }
 };
 
 
