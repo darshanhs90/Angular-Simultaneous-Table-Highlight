@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="myApp">
+<head>
+	<title>Demo</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="myCtrl" class="container">
+	<h1 class="page-header">Table Difference Demo</h1>
+<span class="page-header">Buckets:</span>
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Select Bucket</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li ng-repeat="x in buckets track by $index"><a ng-click="table($index)">{{x}}</a></li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+	<div class="row">
+		<div class="col-lg-6">
+			<table border="1" id="table1" class="table table-hover">
+				<tr><th>Row Id</th><th>Name</th><th>Clicks</th></tr>
+				<tr ng-repeat="x in maindata track by $index" ><td>{{$index+1}}</td><td>{{x.name}}</td><td>{{x.clicks}}</td></tr>
+			</table>
+		</div>
+
+
+		<div class="col-lg-6" id="tbl2" ng-show="selectedBucket!=-1">
+			<table border="1" id="table1" class="table table-hover">
+				<tr><th>Row Id</th><th>Name</th><th>Clicks</th></tr>
+				<tr ng-repeat="x in data track by $index" ><td>{{$index+1}}</td><td>{{x.name}}</td><td>{{x.clicks}}</td></tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<table border="1" id="table1" class="table table-hover" ng-show="selectedBucket!=-1">
+				<tr><th>Name </th><th>Clicks-Main Bucket</th><th>Clicks- Bucket {{selectedBucket+1}}</th></tr>
+				<tr ng-repeat="x in maindata track by $index" ><td>{{x.name}}</td><td>{{x.clicks}}</td><td>{{difference[$index]}}</td></tr>
+			</table>
+		</div>
+	</div>
+	
+
+	<script src="jquery.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="angular.min.js"></script>  
+	<script src="tabledropdown-angular.js"></script>  
+
+</body>
+</html>
