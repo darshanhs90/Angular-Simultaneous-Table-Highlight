@@ -42,9 +42,11 @@ app.controller('myCtrl',function($scope,$http,$timeout) {
 			case 3:$scope.data=$scope.bucket3;
 			break;
 		}
+		$scope.clickData=[];
 		$timeout(function(){ 
 			for (var i = 0; i <$scope.maindata.length; i++) {
 				$scope.name=$scope.maindata[i].name;
+				
 				$scope.nameMatch=-1;
 				for (var j = 0; j <$scope.data.length; j++) {
 					if($scope.name==$scope.data[j].name){
@@ -52,12 +54,19 @@ app.controller('myCtrl',function($scope,$http,$timeout) {
 						var diff=parseInt($scope.maindata[i].clicks)-parseInt($scope.data[j].clicks);
 						console.log(diff);
 						$scope.difference.push(diff);
-					}
+					}				
 				}
 				if($scope.nameMatch!=1){
 					$scope.difference.push('-');
-			}
+				}
 				console.log($scope.difference[i]);
+				if($scope.difference[i]=='-'){
+					$scope.clickData.push('-');
+				}
+				else{
+					var val=parseInt($scope.maindata[i].clicks)-parseInt($scope.difference[i]);
+					$scope.clickData.push(val);
+				}
 			}
 		},0);
 

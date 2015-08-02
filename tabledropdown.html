@@ -31,8 +31,8 @@
 
 
 
-
-	<div class="row">
+<!-- 
+	<div class="row" ng-show="selectedBucket==-1">
 		<div class="col-lg-6">
 			<table border="1" id="table1" class="table table-hover">
 				<tr><th>Row Id</th><th>Name</th><th>Clicks</th></tr>
@@ -41,19 +41,13 @@
 		</div>
 
 
-		<div class="col-lg-6" id="tbl2" ng-show="selectedBucket!=-1">
-			<table border="1" id="table1" class="table table-hover">
-				<tr><th>Row Id</th><th>Name</th><th>Clicks</th></tr>
-				<tr ng-repeat="x in data track by $index" ><td>{{$index+1}}</td><td>{{x.name}}</td><td>{{x.clicks}}</td></tr>
-			</table>
-		</div>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<div class="row" >
 		<div class="col-lg-12">
-			<table border="1" id="table1" class="table table-hover" ng-show="selectedBucket!=-1">
-				<tr><th>Name </th><th>Clicks-Main Bucket</th><th>Clicks- Bucket {{selectedBucket+1}}</th></tr>
-				<tr ng-repeat="x in maindata track by $index" ><td>{{x.name}}</td><td>{{x.clicks}}</td><td>{{difference[$index]}}</td></tr>
+			<table border="1" id="table1" class="table table-hover" >
+				<tr><th>Name </th><th>Clicks-Main Bucket</th><th ng-show="selectedBucket!=-1">Clicks-Bucket {{selectedBucket+1}}</th><th ng-show="selectedBucket!=-1">Clicks Difference </th></tr>
+				<tr ng-repeat="x in maindata track by $index" ><td>{{x.name}}</td><td>{{x.clicks}}</td><td ng-show="selectedBucket!=-1">{{clickData[$index]}}</td><td ng-show="selectedBucket!=-1">{{difference[$index]}}</td></tr>
 			</table>
 		</div>
 	</div>
